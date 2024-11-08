@@ -52,6 +52,6 @@
     },
   "primaryTokenAttribute": "health",
   "secondaryTokenAttribute": "power",
-  "manifest": "https://raw.githubusercontent.com/foundryvtt/worldbuilding/master/system.json",
+  "manifest": "https://raw.githubusercontent.com/GarebearNF/emberwindFVTT/refs/heads/main/system.json",
   "download": "https://www.dropbox.com/scl/fi/2efin1wz15erc0dttocqs/emberwind.zip?rlkey=7xye8otvm1laucjzu27v7e1d8&st=cp0hf3fw&dl=1"
 }
