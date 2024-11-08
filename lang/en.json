@@ -1,0 +1,81 @@
+{
+  "EMBER": {
+    "Ability": {
+      "Dodge": { "long": "Dodge", "abbr": "dodge" },
+      "Resist": { "long": "Resistance", "abbr": "resist" },
+      "Tough": { "long": "Toughness", "abbr": "tough" },
+      "Will": { "long": "Willpower", "abbr": "will" }
+    },
+	"Skill": {
+      "Ath": { "long": "Athletics", "abbr": "ath" },
+      "Acr": { "long": "Acrobatics", "abbr": "acr" },
+      "End": { "long": "Endurance", "abbr": "end" },
+      "Fas": { "long": "Fast Talk", "abbr": "fas" },
+      "Foc": { "long": "Focus", "abbr": "foc" },
+      "Ins": { "long": "Insight", "abbr": "ins" },
+      "Int": { "long": "Intimidate", "abbr": "int" },
+      "Kno": { "long": "Knowledge", "abbr": "kno" },
+      "Lea": { "long": "Leadership", "abbr": "lea" },
+      "Men": { "long": "Mend", "abbr": "men" },
+      "Soh": { "long": "Sleight of Hand", "abbr": "soh" },
+      "Ste": { "long": "Stealth", "abbr": "ste" }
+    },
+	"Tiers": {
+		"1": "Tier 1",
+		"2": "Tier 2",
+		"3": "Tier 3",
+		"4": "Tier 4"
+	},
+	"Classes": {
+		"Archer": "Archer",
+		"Ardent": "Ardent",
+		"Atlanta": "Atlanta",
+		"Druid": "Druid",
+		"Invoker": "Invoker",
+		"Rogue": "Rogue",
+		"Spiritualist": "Spiritualist",
+		"Tactician": "Tactician",
+		"Warrior": "Warrior"
+	},
+    "SheetLabels": {
+      "Actor": "Emberwind Actor Sheet",
+      "Item": "Emberwind Item Sheet"
+    },
+    "Item": {
+      "Spell": {
+        "SpellLVL": "Level {level} Spells",
+        "AddLVL": "Add LVL {level}"
+      }
+    },
+    "Effect": {
+      "Source": "Source",
+      "Toggle": "Toggle Effect",
+      "Temporary": "Temporary Effects",
+      "Passive": "Passive Effects",
+      "Inactive": "Inactive Effects"
+    }
+  },
+
+  "TYPES": {
+    "Actor": {
+      "hero-aspect": "Hero: Aspect",
+      "hero-attribute": "Hero: Attribute",
+	  "foe": "Foe"
+    },
+    "Item": {
+      "item": "Item",
+	  "action": "Basic Action",
+      "feature": "Feature",
+      "spell": "Spell",
+	  "class": "Class",
+	  "subclass": "Subclass",
+	  "class-action": "Class Action", 
+	  "class-trait": "Class Trait", 
+	  "class-tt-action": "Class Tide-Turner Action", 
+	  "foe-characteristic": "Foe Characteristic", 
+	  "foe-mod": "Foe Modifier", 
+	  "maneuver": "Maneuver",
+	  "type": "Type"
+    }
+  }
+}

@@ -1,0 +1,21 @@
+<div class="chat-card item-card cap-card" data-actor-id="{{actor.id}}" data-item-id="{{item.id}}"
+     {{#if tokenId}}data-token-id="{{tokenId}}"{{/if}}>
+	<div class="">
+		<div class="dice-roll">
+			<div class="dice-result">
+				<h4 class="dice-formula">{{rollFormula}}</h4>
+					<div class="dice-tooltip">
+						<header class="part-header flexrow">
+							<span class="part-formula">{{rollFormula}}</span>
+							<span class="part-total">{{rollResult}}</span>
+						</header>
+						<ol class="dice-rolls">
+							{{{tooltipFinal}}}
+						</ol>
+                    </div>
+				<h4 class="dice-total">{{rollResult}}</h4>
+			</div>
+		</div>
+		{{> "systems/emberwind/templates/chat/parts/roll-utilities.hbs"}}
+    </div>
+</div>

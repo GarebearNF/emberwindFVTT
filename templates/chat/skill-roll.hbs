@@ -1,0 +1,33 @@
+<div class="chat-card item-card cap-card" data-actor-id="{{actor.id}}" data-item-id="{{item.id}}"
+     {{#if tokenId}}data-token-id="{{tokenId}}"{{/if}}>
+	<header class="grid grid-8col">
+				<span class="roll-header title grid-span-8" style="cursor: pointer;"><h2>{{skillLabel}} Check</h2></span>
+    </header>
+	<div class="grid grid-9col">
+	<div class="grid-span-4">
+		<div class="dice-roll">
+			<div class="dice-result">
+				<h4 class="dice-total">{{rollResult}}</h4>
+					<div class="dice-tooltip">
+						<header class="part-header flexrow">
+							<span class="part-formula">{{rollFormula}}</span>
+							<span class="part-total">{{rollResult}}</span>
+						</header>
+						<ol class="dice-rolls">
+							{{{tooltipFinal}}}
+						</ol>
+                    </div>
+			</div>
+		</div>
+    </div>
+	<div class="grid-span-1">
+		<h3>VS</h3>
+	</div>
+	<div class="grid-span-4 skill-total {{skillCategory}}">
+		<h4>{{skillData}}</h4>
+	</div>
+	<div class="grid-span-9 skill-result skill-{{checkStatus}}">
+		<h4>{{checkStatus}}</h4>
+	</div>
+	</div>
+</div>

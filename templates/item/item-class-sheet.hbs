@@ -1,0 +1,30 @@
+<form class="{{cssClass}}" autocomplete="off">
+  <header class="sheet-header">
+    <div class="header-fields">
+      {{#if (eq item.system.disable true)}}
+	  <label for="item.name" class="charname"><h1>{{item.name}}</h1></label>
+	  {{else}}
+	  <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Name" /></h1>
+	  {{/if}}
+    </div>
+  </header>
+
+  {{!-- Sheet Body --}}
+  <section class="sheet-body">
+
+    {{!-- Description Tab --}}
+    <div class="tab biography">
+		<h2>Description</h2>
+      {{!-- To render inline rolls in a TinyMCE editor, you need to pass the parent actor's (if any) roll data to the
+      rollData prop. --}}
+	  {{#if (eq item.system.disable true)}}
+	  {{{enrichedDescription}}}
+	  {{else}}
+      {{editor enrichedDescription target="system.description" rollData=rollData button=true owner=owner
+      editable=editable}}
+	  {{/if}}
+    </div>
+  </section>
+</form>
+
+{{log system}}

@@ -1,0 +1,233 @@
+<div class="grid grid-6col effect-toggle-container">
+			<h2 class="grid-span-6">Condition Stacks</h2>
+			<div class="grid-span-2">
+				<div class="grid grid-6col effect tooltip-container">
+					<span class="grid-span-6 tooltip">
+						<svg width="20" height="20"><image class="stat-icon" xlink:href="systems/emberwind/assets/Icons/Status-Effects/burning.svg"></image></svg> <span class="effect-label">Burning</span>
+						<div class="tooltiptext" style="font-weight: bold;">
+							<div class="grid grid-3col gapless">
+								<div class="grid-span-2"></div>
+								<div class="grid-span-1 item-classification">Condition</div>
+								<div class="grid-span-3"><em>Max. 2 Stacks.</em><hr>
+								Combatant takes 1d20 x {{stackValueBurning}} PIERCING Damage at the start of each of their Turns.</div>
+								<div class="grid-span-2"><span class="condition-type-dot">DAMAGE OVER TIME</span></div>
+							</div>
+						</div>
+					</span>
+					<a class="effect-decrement grid-span-2" id="apply-burning-decrement"><i class="fa-solid fa-circle-minus"></i></a>
+					<input type="number" id="apply-burning" class="effect-number grid-span-2" style="display:none" min="0" max="2" value="0" disabled>
+					<span>{{stackValueBurning}}</span>
+					<a class="effect-increment grid-span-2" id="apply-burning-increment"><i class="fa-solid fa-circle-plus"></i></a>
+				</div>
+			</div>
+			<div class="grid-span-2">
+				<div class="grid grid-6col effect">
+					<span class="grid-span-6 tooltip">
+						<svg width="20" height="20"><image class="stat-icon" xlink:href="systems/emberwind/assets/Icons/Status-Effects/chill.svg"></image></svg> <span class="effect-label">Chill</span>
+						<div class="tooltiptext" style="font-weight: bold;">
+							<div class="grid grid-3col gapless">
+								<div class="grid-span-2"></div>
+								<div class="grid-span-1 item-classification">Condition</div>
+								<div class="grid-span-3"><em>Max. 1 Stack.</em><hr>
+								Restore -1 Action Point at the start of each your Turns.</div>
+								<div class="grid-span-2"><span class="condition-type-restrict">ACTION RESTRICTION</span></div>
+							</div>
+						</div>
+					</span>
+					<a class="effect-decrement grid-span-2" id="apply-chill-decrement"><i class="fa-solid fa-circle-minus"></i></a>
+					<input type="number" id="apply-chill" class="effect-number grid-span-2" min="0" max="1" value="0" disabled>
+					<a class="effect-increment grid-span-2" id="apply-chill-increment"><i class="fa-solid fa-circle-plus"></i></a>
+				</div>
+			</div>
+			<div class="grid-span-2">
+				<div class="grid grid-6col effect">
+					<span class="grid-span-6 tooltip">
+						<svg width="20" height="20"><image class="stat-icon" xlink:href="systems/emberwind/assets/Icons/Status-Effects/daze.svg"></image></svg> <span class="effect-label">Daze</span>
+						<div class="tooltiptext" style="font-weight: bold;">
+							<div class="grid grid-3col gapless">
+								<div class="grid-span-2"></div>
+								<div class="grid-span-1 item-classification">Condition</div>
+								<div class="grid-span-3"><em>Max. 1 Stack.</em><hr>
+								-4 A.</div>
+								<div class="grid-span-2"><span class="condition-type-hit">HIT RATE</span></div>
+							</div>
+						</div>
+					</span>
+					<a class="effect-decrement grid-span-2" id="apply-daze-decrement"><i class="fa-solid fa-circle-minus"></i></a>
+					<input type="number" id="apply-daze" class="effect-number grid-span-2" min="0" max="1" value="0" disabled>
+					<a class="effect-increment grid-span-2" id="apply-daze-increment"><i class="fa-solid fa-circle-plus"></i></a>
+				</div>
+			</div>
+			<div class="grid-span-2">
+				<div class="grid grid-6col effect">
+					<span class="grid-span-6 tooltip">
+						<svg width="20" height="20"><image class="stat-icon" xlink:href="systems/emberwind/assets/Icons/Status-Effects/fragility.svg"></image></svg> <span class="effect-label">Fragility</span>
+						<div class="tooltiptext" style="font-weight: bold;">
+							<div class="grid grid-3col gapless">
+								<div class="grid-span-2"></div>
+								<div class="grid-span-1 item-classification">Condition</div>
+								<div class="grid-span-3"><em>Max. 1 Stack.</em><hr>
+								All Damage Combatant takes has the PIERCING property. FRAGILITY is removed at the end of the Combatant’s next Turn.</div>
+								<div class="grid-span-2"><span class="condition-type-damage">DAMAGE</span></div>
+							</div>
+						</div>
+					</span>
+					<a class="effect-decrement grid-span-2" id="apply-fragility-decrement"><i class="fa-solid fa-circle-minus"></i></a>
+					<input type="number" id="apply-fragility" class="effect-number grid-span-2" min="0" max="1" value="0" disabled>
+					<a class="effect-increment grid-span-2" id="apply-fragility-increment"><i class="fa-solid fa-circle-plus"></i></a>
+				</div>
+			</div>
+			<div class="grid-span-2">
+				<div class="grid grid-6col effect">
+					<span class="grid-span-6 tooltip">
+						<svg width="20" height="20"><image class="stat-icon" xlink:href="systems/emberwind/assets/Icons/Status-Effects/off-balance.svg"></image></svg> <span class="effect-label">Off-Guard</span>
+						<div class="tooltiptext" style="font-weight: bold;">
+							<div class="grid grid-3col gapless">
+								<div class="grid-span-2"></div>
+								<div class="grid-span-1 item-classification">Condition</div>
+								<div class="grid-span-3"><em>Max. 1 Stack.</em><hr>
+								-2 Dodge.</div>
+								<div class="grid-span-2"><span class="condition-type-hit">HIT RATE</span></div>
+							</div>
+						</div>
+					</span>
+					<a class="effect-decrement grid-span-2" id="apply-offguard-decrement"><i class="fa-solid fa-circle-minus"></i></a>
+					<input type="number" id="apply-offguard" class="effect-number grid-span-2" min="0" max="1" value="0" disabled>
+					<a class="effect-increment grid-span-2" id="apply-offguard-increment"><i class="fa-solid fa-circle-plus"></i></a>
+				</div>
+			</div>
+			<div class="grid-span-2">
+				<div class="grid grid-6col effect">
+					<span class="grid-span-6 tooltip">
+						<svg width="20" height="20"><image class="stat-icon" xlink:href="systems/emberwind/assets/Icons/Status-Effects/paralysis.svg"></image></svg> <span class="effect-label">Paralysis</span>
+						<div class="tooltiptext" style="font-weight: bold;">
+							<div class="grid grid-3col gapless">
+								<div class="grid-span-2"></div>
+								<div class="grid-span-1 item-classification">Condition</div>
+								<div class="grid-span-3"><em>Max. 1 Stack.</em><hr>
+								Combatant may only take 1 Action during their next Turn. PARALYSIS is removed at the end of that Turn.</div>
+								<div class="grid-span-2"><span class="condition-type-restrict">ACTION RESTRICTION</span></div>
+							</div>
+						</div>
+					</span>
+					<a class="effect-decrement grid-span-2" id="apply-paralysis-decrement"><i class="fa-solid fa-circle-minus"></i></a>
+					<input type="number" id="apply-paralysis" class="effect-number grid-span-2" min="0" max="1" value="0" disabled>
+					<a class="effect-increment grid-span-2" id="apply-paralysis-increment"><i class="fa-solid fa-circle-plus"></i></a>
+				</div>
+			</div>
+			<div class="grid-span-2">
+				<div class="grid grid-6col effect">
+					<span class="grid-span-6 tooltip">
+						<svg width="20" height="20"><image class="stat-icon" xlink:href="systems/emberwind/assets/Icons/Status-Effects/poison.svg"></image></svg> <span class="effect-label">Poison</span>
+						<div class="tooltiptext" style="font-weight: bold;">
+							<div class="grid grid-3col gapless">
+								<div class="grid-span-2"></div>
+								<div class="grid-span-1 item-classification">Condition</div>
+								<div class="grid-span-3"><em>Max. 5 Stacks.</em><hr>
+								Combatant takes 1d6 x [Stack] PIERCING Damage at the start of each of their Turns.</div>
+								<div class="grid-span-2"><span class="condition-type-dot">DAMAGE OVER TIME</span></div>
+							</div>
+						</div>
+					</span>
+					<a class="effect-decrement grid-span-2" id="apply-poison-decrement"><i class="fa-solid fa-circle-minus"></i></a>
+					<input type="number" id="apply-poison" class="effect-number grid-span-2" min="0" max="5" value="0" disabled>
+					<a class="effect-increment grid-span-2" id="apply-poison-increment"><i class="fa-solid fa-circle-plus"></i></a>
+				</div>
+			</div>
+			<div class="grid-span-2">
+				<div class="grid grid-6col effect">
+					<span class="grid-span-6 tooltip">
+						<svg width="20" height="20"><image class="stat-icon" xlink:href="systems/emberwind/assets/Icons/Status-Effects/prone.svg"></image></svg> <span class="effect-label">Prone</span>
+						<div class="tooltiptext" style="font-weight: bold;">
+							<div class="grid grid-3col gapless">
+								<div class="grid-span-2"></div>
+								<div class="grid-span-1 item-classification">Condition</div>
+								<div class="grid-span-3"><em>Max. 1 Stack.</em><hr>
+								OFF-GUARD and skips 1st Action Hex of Action Chain. Remove PRONE by expending 1 Fast Action during your Turn.</div>
+								<div class="grid-span-2"><span class="condition-type-hit">HIT RATE</span></div>
+							</div>
+						</div>
+					</span>
+					<a class="effect-decrement grid-span-2" id="apply-prone-decrement"><i class="fa-solid fa-circle-minus"></i></a>
+					<input type="number" id="apply-prone" class="effect-number grid-span-2" min="0" max="1" value="0" disabled>
+					<a class="effect-increment grid-span-2" id="apply-prone-increment"><i class="fa-solid fa-circle-plus"></i></a>
+				</div>
+			</div>
+			<div class="grid-span-2">
+				<div class="grid grid-6col effect">
+					<span class="grid-span-6 tooltip">
+						<svg width="20" height="20"><image class="stat-icon" xlink:href="systems/emberwind/assets/Icons/Status-Effects/silence.svg"></image></svg> <span class="effect-label">Silence</span>
+						<div class="tooltiptext" style="font-weight: bold;">
+							<div class="grid grid-3col gapless">
+								<div class="grid-span-2"></div>
+								<div class="grid-span-1 item-classification">Condition</div>
+								<div class="grid-span-3"><em>Max. 1 Stack.</em><hr>
+								Cannot use Spells or Tide-Turners. SILENCE is removed at the end of the Hero’s next Turn.</div>
+								<div class="grid-span-2"><span class="condition-type-restrict">ACTION RESTRICTION</span></div>
+							</div>
+						</div>
+					</span>
+					<a class="effect-decrement grid-span-2" id="apply-silence-decrement"><i class="fa-solid fa-circle-minus"></i></a>
+					<input type="number" id="apply-silence" class="effect-number grid-span-2" min="0" max="1" value="0" disabled>
+					<a class="effect-increment grid-span-2" id="apply-silence-increment"><i class="fa-solid fa-circle-plus"></i></a>
+				</div>
+			</div>
+			<div class="grid-span-2">
+				<div class="grid grid-6col effect">
+					<span class="grid-span-6 tooltip">
+						<svg width="20" height="20"><image class="stat-icon" xlink:href="systems/emberwind/assets/Icons/Status-Effects/sleep.svg"></image></svg> <span class="effect-label">Sleep</span>
+						<div class="tooltiptext" style="font-weight: bold;">
+							<div class="grid grid-3col gapless">
+								<div class="grid-span-2"></div>
+								<div class="grid-span-1 item-classification">Condition</div>
+								<div class="grid-span-3"><em>Max. 1 Stack.</em><hr>
+								Combatant cannot take Actions during their next Turn. SLEEP is removed at the end of that Turn or if the Combatant takes Damage. Actions that Target only that Combatant gains the AUTO-CRIT property.</div>
+								<div class="grid-span-1"><span class="condition-type-hit">HIT RATE</span></div>
+								<div class="grid-span-2"><span class="condition-type-restrict">ACTION RESTRICTION</span></div>
+						</div>
+						</div>
+					</span>
+					<a class="effect-decrement grid-span-2" id="apply-sleep-decrement"><i class="fa-solid fa-circle-minus"></i></a>
+					<input type="number" id="apply-sleep" class="effect-number grid-span-2" min="0" max="1" value="0" disabled>
+					<a class="effect-increment grid-span-2" id="apply-sleep-increment"><i class="fa-solid fa-circle-plus"></i></a>
+				</div>
+			</div>
+			<div class="grid-span-2">
+				<div class="grid grid-6col effect">
+					<span class="grid-span-6 tooltip">
+						<svg width="20" height="20"><image class="stat-icon" xlink:href="systems/emberwind/assets/Icons/Status-Effects/vulnerability.svg"></image></svg> <span class="effect-label">Vulnerability</span>
+						<div class="tooltiptext" style="font-weight: bold;">
+							<div class="grid grid-3col gapless">
+								<div class="grid-span-2"></div>
+								<div class="grid-span-1 item-classification">Condition</div>
+								<div class="grid-span-3"><em>&#8734; Stacks.</em><hr>
+								-1 x [Stack] Toughness & Resistance.</div>
+								<div class="grid-span-2"><span class="condition-type-damage">DAMAGE</span></div>
+							</div>
+						</div>
+					</span>
+					<a class="effect-decrement grid-span-2" id="apply-vulnerability-decrement"><i class="fa-solid fa-circle-minus"></i></a>
+					<input type="number" id="apply-vulnerability" class="effect-number grid-span-2" min="0" max="99" value="0" disabled>
+					<a class="effect-increment grid-span-2" id="apply-vulnerability-increment"><i class="fa-solid fa-circle-plus"></i></a>
+				</div>
+			</div>
+			<div class="grid-span-2">
+				<div class="grid grid-6col effect">
+					<span class="grid-span-6 tooltip">
+						<svg width="20" height="20"><image class="stat-icon" xlink:href="systems/emberwind/assets/Icons/Status-Effects/weakness.svg"></image></svg> <span class="effect-label">Weakness</span>
+						<div class="tooltiptext" style="font-weight: bold;">
+							<div class="grid grid-3col gapless">
+								<div class="grid-span-2"></div>
+								<div class="grid-span-1 item-classification">Condition</div>
+								<div class="grid-span-3"><em>&#8734; Stacks.</em><hr>
+								-1 x [Stack] Damage to all of that Combatant’s Actions.</div>
+								<div class="grid-span-2"><span class="condition-type-damage">DAMAGE</span></div>
+							</div>
+						</div>
+					</span>
+					<a class="effect-decrement grid-span-2" id="apply-weakness-decrement"><i class="fa-solid fa-circle-minus"></i></a>
+					<input type="number" id="apply-weakness" class="effect-number grid-span-2" min="0" max="99" value="0" disabled>
+					<a class="effect-increment grid-span-2" id="apply-weakness-increment"><i class="fa-solid fa-circle-plus"></i></a>
+				</div>
+			</div>
+		</div>

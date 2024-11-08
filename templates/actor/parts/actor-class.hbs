@@ -1,0 +1,39 @@
+<ol class='items-list'>
+  <li class='item flexrow items-header grid grid-12col gapless'>
+    <div class='item-name grid-span-4' style="justify-content: center;">{{localize 'Name'}}</div>
+	<div class='item-name grid-span-4'>{{localize 'TYPES.Item.type'}}</div>
+	<div class='item-controls grid-span-4'  style="visibility: hidden;">
+      <a
+        class='item-control item-create'
+        title='{{localize "DOCUMENT.Create" type='Class'}}'
+        data-type='class'
+      >
+        <i class='fas fa-plus'></i>
+        {{localize 'DOCUMENT.New' type='Class'}}
+      </a>
+    </div>
+  </li>
+  {{#each classes as |item id|}}
+    <li class='item flexrow grid grid-12col gapless' data-item-id='{{item._id}}'>
+      <div class="grid-span-12">
+	  <div class="grid grid-12col gapless tooltip-container">
+        <div class='actor-action item-name grid-span-4' style="justify-content: center; font-weight: bold;"><span class="tooltip" >{{item.name}}{{> "systems/emberwind/templates/item/parts/item-tooltip.hbs" this}}</span></div>
+	  <div class='actor-action item-name grid-span-4'><span style="text-transform: capitalize;">{{item.type}}</span></div>
+      <div class='actor-action item-controls grid-span-4' style="margin: 0;">
+        <a
+          class='item-control item-edit'
+          title="View Class"
+        >
+          <i class='fa-solid fa-eye'></i>
+        </a>
+		<a
+          class='item-control item-delete'
+          title='{{localize "DOCUMENT.Delete" type='class'}}'
+        >
+          <i class='fas fa-trash'></i>
+        </a>
+      </div>
+	  </div>
+    </li>
+  {{/each}}
+</ol>

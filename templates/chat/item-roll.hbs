@@ -1,0 +1,87 @@
+<div class="chat-card item-card cap-card" data-actor-id="{{actor.id}}" data-item-id="{{item.id}}"
+     {{#if tokenId}}data-token-id="{{tokenId}}"{{/if}}>
+	<header class="grid grid-8col">
+            {{#if item.system.effect}}
+				<span class="roll-header title grid-span-8" style="cursor: pointer;"><h2>{{item.name}}<span style="float: right;"><span class="roll-header-toggle-arrow"><i class="fa-solid fa-angle-down"></i></span></span></h2></span>
+			{{else}}
+				<span class="roll-header title grid-span-8" style=""><h2>{{item.name}}</h2></span>
+			{{/if}}
+			{{#if item.system.flavor}}
+                <span class="subtitle grid-span-8">
+                {{item.system.flavor}}
+				</span>
+			{{/if}}
+			{{#if item.system.effect}}
+			<div class="roll-description grid-span-8" style="display: none;">
+				<span class="description grid-span-8">
+				{{{enrichedEffect}}}
+				</span>
+			</div>
+			{{/if}} 
+    </header>
+	<div class="">
+		<div class="dice-roll">
+			<div class="dice-result">
+				<h4 class="dice-total">{{rollResult}}</h4>
+					<div class="dice-tooltip">
+						<header class="part-header flexrow">
+							<span class="part-formula">{{rollFormula}}</span>
+							<span class="part-total">{{rollResult}}</span>
+						</header>
+						<ol class="dice-rolls">
+							{{{tooltipFinal}}}
+						</ol>
+                    </div>
+			</div>
+		</div>
+    </div>
+	<div class="grid grid-12col" style="text-align: center;">
+		<div class="grid-span-4 cap cap-crit">
+			<h4>Critical</h4>
+			<p class="crit-val">{{#if item.system.auto-crit}}AUTO-CRIT{{else}}{{actor.system.abilities.crit.value}}{{/if}}</p>
+			<p class="roll-status">{{#if (eq critStatus "Fail")}}<i class="fa-solid fa-square-xmark fail"></i>{{else}}<i class="fa-solid fa-square-check success"></i>{{/if}}</p>
+		</div>
+
+		<div class="grid-span-4 cap cap-accu">
+			<h4>Accuracy</h4>
+			<p class="accu-val">{{#if (eq accuStatus "Crit")}}CRIT!{{else}}{{#if item.system.auto-hit}}AUTO-HIT{{else}}{{actor.system.abilities.accu.value}}{{/if}}{{/if}}</p>
+			<p class="roll-status">{{#if (eq accuStatus "Fail")}}<i class="fa-solid fa-square-xmark fail"></i>{{else}}<i class="fa-solid fa-square-check success"></i>{{/if}}</p>
+		</div>
+
+		<div class="grid-span-4 cap cap-pene">
+			<h4>Penetration</h4>
+			<p class="pene-val">{{#if (eq peneStatus "Crit")}}CRIT!{{else}}{{#if item.system.pierce}}PIERCE{{else}}{{actor.system.abilities.pene.value}}{{/if}}{{/if}}</p>
+			<p class="roll-status">{{#if (eq peneStatus "Fail")}}<i class="fa-solid fa-square-xmark fail"></i>{{else}}<i class="fa-solid fa-square-check success"></i>{{/if}}</p>
+		</div>
+		
+		{{#if (eq peneStatus "Crit")}}
+			<button class="grid-span-12 crit-damage-button"><i class="fa-solid fa-dice"></i> Critical Damage</button>
+		{{else}}
+			{{#if (eq accuStatus "Success")}}
+				<button class="grid-span-12 roll-damage-button"><i class="fa-solid fa-dice"></i> Roll Damage</button>
+			{{/if}}
+	{{/if}}
+	</div>
+	<footer class="grid grid-8col">
+		{{#if item.system.type}}
+                <div class="card-footer grid-span-2">
+					{{item.system.type}}
+				</div>
+                {{/if}}
+			{{#if item.system.target}}
+                <div class="card-footer grid-span-2">
+					{{item.system.target}}
+				</div>
+                {{/if}}
+			{{#if item.system.range}}
+                <div class="card-footer grid-span-2">
+					{{item.system.range}}
+				</div>
+                {{/if}}
+			{{#if item.system.speed}}
+                <div class="card-footer grid-span-2">
+					{{item.system.speed}}
+				</div>
+                {{/if}}
+	</footer>
+</div>

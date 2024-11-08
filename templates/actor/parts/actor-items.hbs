@@ -1,0 +1,55 @@
+<ol class='items-list'>
+  <li class='item flexrow items-header grid grid-12col gapless'>
+    <div class='item-name grid-span-9' style="justify-content: left;">{{localize 'Name'}}</div>
+	<div class='item-controls grid-span-3'  style="visibility: hidden;">
+
+    </div>
+  </li>
+  {{#each gear as |item id|}}
+    <li class='item flexrow grid grid-12col gapless' data-item-id='{{item._id}}'>
+      <div class="grid-span-12">
+	  <div class="grid grid-12col gapless tooltip-container">
+	  <div class='actor-action item-name grid-span-9' data-roll-type='item' style="justify-content: left; font-weight: bold;">
+        <span class="rollable tooltip" data-roll-type='item' >{{item.name}} <span style="font-weight: normal; font-style: italic;">{{#if (eq system.equipped true)}} (Equipped) {{/if}}</span>{{> "systems/emberwind/templates/item/parts/item-tooltip.hbs" this}}</span>
+      </div>
+      <div class='actor-action item-name item-controls grid-span-3'>
+        {{#if (eq system.equipped false)}}
+		<a
+          title='Equip'
+        >
+          <i class="fa-solid fa-shield item-equip"></i>
+        </a>
+		{{else}}
+		<a
+          title='Unequip'
+        >
+          <i class="fa-solid fa-shield-halved item-equip"></i>
+        </a>
+		{{/if}}
+		<a
+          class='item-control item-edit'
+          title='{{localize "DOCUMENT.Update" type='Item'}}'
+        >
+          <i class='fas fa-edit'></i>
+        </a>
+        <a
+          class='item-control item-delete'
+          title='{{localize "DOCUMENT.Delete" type='Item'}}'
+        >
+          <i class='fas fa-trash'></i>
+        </a>
+      </div>
+    </li>
+  {{/each}}
+  <li class='item flexrow flex-group-right' style="background-color: white;">
+    <div class='item-controls-add'>
+      <a
+        class='item-control item-create'
+        title='Create Item'
+        data-type='item'
+      >
+        <i class='fas fa-plus'></i>
+      </a>
+    </div>
+  </li>
+</ol>

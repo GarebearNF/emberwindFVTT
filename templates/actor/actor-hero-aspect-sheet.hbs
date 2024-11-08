@@ -1,0 +1,369 @@
+<form class="{{cssClass}} {{actor.type}} flexcol" autocomplete="off">
+	<div class="EmberBack">
+	<div class="{{system.class}}">
+  {{!-- Sheet Body --}}
+  <section class="sheet-body grid grid-12col">
+  
+  <div class="grid-start-1 grid-span-4">
+    <aside class="sidebar grid grid-12col">
+		<div class="grid-span-12">
+		<img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100"/>
+		</div>
+		<div class="grid-span-12">
+		<h1 class="charname"><input name="name" type="text" value="{{actor.name}}" placeholder="Name"/></h1>
+		</div>
+		  {{!-- The grid classes are defined in scss/global/_grid.scss. To use,
+		  use both the "grid" and "grid-Ncol" class where "N" can be any number
+		  from 1 to 12 and will create that number of columns.  --}}
+		  
+        {{!-- "flex-group-center" is also defined in the _grid.scss file
+        and it will add a small amount of padding, a border, and will
+        center all of its child elements content and text. --}}
+        <div class="resource flex-group-center grid-span-6">
+			<label for="system.tier" class="resource-label">Tier:</label>
+			<select name="system.tier" value="{{system.tier}}" placeholder="">
+				{{selectOptions tier selected=system.tier localize=true blank=''}}
+			</select>
+		</div>
+		
+        <div class="resource flex-group-center grid-span-6">
+          <label for="system.exp.value" class="resource-label">EXP:</label>
+          <div class="resource-input flexrow flex-center flex-between" style="align-items: flex-end;">
+          <input type="number" name="system.exp.value" value="{{system.exp.value}}" data-dtype="Number"/>
+		  <span style="font-size: .7rem"> /1000 </span>
+          </div>
+        </div>
+		<div class="grid-span-12">
+		<div class="grid grid-12col aspect-health-class gapless">
+		<div class="resource flex-group-center grid-span-6" style="height:100%; background-color: #C6C8CA; border: solid 2px #C6C8CA;">
+		<div class="grid grid-12col gapless" style="align-items: center;">
+		 <div class="grid-span-4">
+          <label for="system.health.value" class="resource-label" style="font-size: 1.3rem; -webkit-text-stroke: .5px white; font-weight: bolder; font-family: 'Arial Black';">HP:</label>
+		 </div>
+		 <div class="grid-span-8 " style="padding: 18% 0px; background-color: #EEEEEF">
+		<div class="grid grid-12col gapless" style="align-items: center;">
+          <div class="grid-span-5 resource-input flexrow flex-center flex-between">
+          <input type="text" name="system.health.value" value="{{system.health.value}}" data-dtype="Number"/>
+		  </div>
+          <div class="grid-span-2 resource-input flexrow flex-center flex-between"><span> / </span></div>
+          <div class="grid-span-5 resource-input flexrow flex-center flex-between"><input type="text" name="system.health.max" value="{{system.health.max}}" data-dtype="Number"/></div>
+          </div>
+		  </div>
+		 </div>
+        </div>
+
+		<div class="grid-span-6">
+			<div class="class-list grid grid-12col">
+				{{#if system.class}}
+				<div class="grid-span-5">
+					<label for="system.class" class="resource-label">Class:</label>
+				</div>
+				<div class="grid-span-7">
+					<label for="system.class" class="">{{system.class}}</label>
+				</div>
+				{{/if}}
+				{{#if system.subclass}}
+				<div class="grid-span-5">
+					<label for="system.exp.value" class="resource-label">Subclass:</label>
+				</div>
+				<div class="grid-span-7">
+					<label for="system.subclass" class="">{{system.subclass}}</label>
+				</div>
+				{{/if}}
+			</div>
+		</div>
+		</div>
+		</div>
+          {{!-- The grid classes are defined in scss/global/_grid.scss. To use,
+          use both the "grid" and "grid-Ncol" class where "N" can be any number
+          from 1 to 12 and will create that number of columns.  --}}
+		<div class="grid-span-12 stat-subheader">Aspects</div>
+
+		<div class="grid-span-12 stat-subheader">Barrier Values</div>
+			<div class="grid-span-12 subheader-hug">
+			<div class="grid grid-12col gapless">
+			<div class="grid-span-6"><div class="grid grid-6col gapless stat-header tough"><div class="grid-span-4 rollable" data-roll-type="skill" data-skill="tough"><label for="system.abilities.tough.value" class="resource-label">
+			<svg width="12" height="12"><image class="stat-icon" xlink:href="systems/emberwind/assets/Icons/Toughness.svg"></image></svg>Toughness:</label></div><div class="grid-span-2"><input type="number" name="system.abilities.tough.value" value="{{system.abilities.tough.value}}" data-dtype="Number"/></div></div></div>
+			<div class="grid-span-6"><div class="grid grid-6col gapless stat-header resist"><div class="grid-span-4 rollable" data-roll-type="skill" data-skill="resist"><label for="system.abilities.resist.value" class="resource-label">
+			<svg width="12" height="12"><image class="stat-icon" xlink:href="systems/emberwind/assets/Icons/Resistance.svg"></image></svg>Resistance:</label></div><div class="grid-span-2"><input type="number" name="system.abilities.resist.value" value="{{system.abilities.resist.value}}" data-dtype="Number"/></div></div></div>
+			</div>
+			</div>
+			<div class="grid-span-12 subheader-hug">
+			<div class="grid grid-12col gapless">
+			<div class="grid-span-6"><div class="grid grid-6col gapless skill-header"><div class="grid-span-4 rollable" data-roll-type="skill" data-skill="ath"><label for="system.abilities.ath.value" class="resource-label">Athletics:</label></div><div class="grid-span-2"><input type="number" name="system.stats.ath.value" value="{{system.stats.ath.value}}" data-dtype="Number"/></div></div></div>
+			<div class="grid-span-6"><div class="grid grid-6col gapless skill-header"><div class="grid-span-4 rollable" data-roll-type="skill" data-skill="ins"><label for="system.abilities.ins.value" class="resource-label">Insight:</label></div><div class="grid-span-2"><input type="number" name="system.stats.ins.value" value="{{system.stats.ins.value}}" data-dtype="Number"/></div></div></div>
+			</div>
+			</div>
+			<div class="grid-span-12 subheader-hug">
+			<div class="grid grid-12col gapless">
+			<div class="grid-span-6"><div class="grid grid-6col gapless skill-header"><div class="grid-span-4 rollable" data-roll-type="skill" data-skill="end"><label for="system.abilities.end.value" class="resource-label">Endurance:</label></div><div class="grid-span-2"><input type="number" name="system.stats.end.value" value="{{system.stats.end.value}}" data-dtype="Number"/></div></div></div>
+			<div class="grid-span-6"><div class="grid grid-6col gapless skill-header"><div class="grid-span-4 rollable" data-roll-type="skill" data-skill="kno"><label for="system.abilities.kno.value" class="resource-label">Knowledge:</label></div><div class="grid-span-2"><input type="number" name="system.stats.kno.value" value="{{system.stats.kno.value}}" data-dtype="Number"/></div></div></div>
+			</div>
+			</div>
+			<div class="grid-span-12 subheader-hug">
+			<div class="grid grid-12col gapless">
+			<div class="grid-span-6"><div class="grid grid-6col gapless skill-header"><div class="grid-span-4 rollable" data-roll-type="skill" data-skill="int"><label for="system.abilities.int.value" class="resource-label">Intimidate:</label></div><div class="grid-span-2"><input type="number" name="system.stats.int.value" value="{{system.stats.int.value}}" data-dtype="Number"/></div></div></div>
+			<div class="grid-span-6"><div class="grid grid-6col gapless skill-header"><div class="grid-span-4 rollable" data-roll-type="skill" data-skill="men"><label for="system.abilities.men.value" class="resource-label">Mend:</label></div><div class="grid-span-2"><input type="number" name="system.stats.men.value" value="{{system.stats.men.value}}" data-dtype="Number"/></div></div></div>
+			</div>
+			</div>
+
+		<div class="grid-span-12 stat-subheader">Defence Values</div>
+			<div class="grid-span-12 subheader-hug">
+			<div class="grid grid-12col gapless">
+			<div class="grid-span-6"><div class="grid grid-6col gapless stat-header dodge"><div class="grid-span-4 rollable" data-roll-type="skill" data-skill="dodge"><label for="system.abilities.dodge.value" class="resource-label">
+			<svg width="12" height="12"><image class="stat-icon" xlink:href="systems/emberwind/assets/Icons/Dodge.svg"></image></svg>Dodge:</label></div><div class="grid-span-2"><input type="number" name="system.abilities.dodge.value" value="{{system.abilities.dodge.value}}" data-dtype="Number"/></div></div></div>
+			<div class="grid-span-6"><div class="grid grid-6col gapless stat-header will"><div class="grid-span-4 rollable" data-roll-type="skill" data-skill="will"><label for="system.abilities.will.value" class="resource-label">
+			<svg width="12" height="12"><image class="stat-icon" xlink:href="systems/emberwind/assets/Icons/Willpower.svg"></image></svg>Willpower:</label></div><div class="grid-span-2"><input type="number" name="system.abilities.will.value" value="{{system.abilities.will.value}}" data-dtype="Number"/></div></div></div>
+			</div>
+			</div>
+			<div class="grid-span-12 subheader-hug">
+			<div class="grid grid-12col gapless">
+			<div class="grid-span-6"><div class="grid grid-6col gapless skill-header"><div class="grid-span-4 rollable" data-roll-type="skill" data-skill="acr"><label for="system.abilities.acr.value" class="resource-label">Acrobatics:</label></div><div class="grid-span-2"><input type="number" name="system.stats.acr.value" value="{{system.stats.acr.value}}" data-dtype="Number"/></div></div></div>
+			<div class="grid-span-6"><div class="grid grid-6col gapless skill-header"><div class="grid-span-4 rollable" data-roll-type="skill" data-skill="foc"><label for="system.abilities.foc.value" class="resource-label">Focus:</label></div><div class="grid-span-2"><input type="number" name="system.stats.foc.value" value="{{system.stats.foc.value}}" data-dtype="Number"/></div></div></div>
+			</div>
+			</div>
+			<div class="grid-span-12 subheader-hug">
+			<div class="grid grid-12col gapless">
+			<div class="grid-span-6"><div class="grid grid-6col gapless skill-header"><div class="grid-span-4 rollable" data-roll-type="skill" data-skill="ste"><label for="system.abilities.ste.value" class="resource-label">Stealth:</label></div><div class="grid-span-2"><input type="number" name="system.stats.ste.value" value="{{system.stats.ste.value}}" data-dtype="Number"/></div></div></div>
+			<div class="grid-span-6"><div class="grid grid-6col gapless skill-header"><div class="grid-span-4 rollable" data-roll-type="skill" data-skill="fas"><label for="system.abilities.fas.value" class="resource-label">Fast Talk:</label></div><div class="grid-span-2"><input type="number" name="system.stats.fas.value" value="{{system.stats.fas.value}}" data-dtype="Number"/></div></div></div>
+			</div>
+			</div>
+			<div class="grid-span-12 subheader-hug">
+			<div class="grid grid-12col gapless">
+			<div class="grid-span-6"><div class="grid grid-6col gapless skill-header"><div class="grid-span-4 rollable" data-roll-type="skill" data-skill="soh"><label for="system.abilities.soh.value" class="resource-label">Sleight of Hand:</label></div><div class="grid-span-2"><input type="number" name="system.stats.soh.value" value="{{system.stats.soh.value}}" data-dtype="Number"/></div></div></div>
+			<div class="grid-span-6"><div class="grid grid-6col gapless skill-header"><div class="grid-span-4 rollable" data-roll-type="skill" data-skill="lea"><label for="system.abilities.lea.value" class="resource-label">Leadership:</label></div><div class="grid-span-2"><input type="number" name="system.stats.lea.value" value="{{system.stats.lea.value}}" data-dtype="Number"/></div></div></div>
+			</div>
+			</div>
+
+		<div class="grid-span-12 stat-subheader">CAP Check</div>
+			<div class="grid-span-12 cap-table">
+			<div class="grid grid-8col gapless cap">
+			<div class="grid-span-2"><div class="grid-span-4 cap-label"><label for="system.abilities.crit.value" class="resource-label">Critical</label></div></div>
+			<div class="grid-span-1"><div class="grid-span-4"> </div></div>
+			<div class="grid-span-2"><div class="grid-span-4 cap-label"><label for="system.abilities.accu.value" class="resource-label">Accuracy</label></div></div>
+			<div class="grid-span-1"><div class="grid-span-4"> </div></div>
+			<div class="grid-span-2"><div class="grid-span-4 cap-label"><label for="system.abilities.pene.value" class="resource-label">Penetration</label></div></div>
+			<div class="grid-span-2"><div class="grid-span-2 cap cap-crit">C: <input type="number" name="system.abilities.crit.value" value="{{system.abilities.crit.value}}" data-dtype="Number"/></div></div>
+			<div class="grid-span-1"><div class="grid-span-4 cap-arrow">&#10141;</div></div>
+			<div class="grid-span-2"><div class="grid-span-2 cap cap-accu">A: <input type="number" name="system.abilities.accu.value" value="{{system.abilities.accu.value}}" data-dtype="Number"/></div></div>
+			<div class="grid-span-1"><div class="grid-span-4 cap-arrow">&#10141;</div></div>
+			<div class="grid-span-2"><div class="grid-span-2 cap cap-pene">P: <input type="number" name="system.abilities.pene.value" value="{{system.abilities.pene.value}}" data-dtype="Number"/></div></div>
+			</div>
+			<div class="grid grid-8col cap-subtext">
+				<ul class="grid-span-8">
+					<li>Roll 1d20 when your Action Targets at least 1 Foe.</li>
+					<li>Must be &#8804; than <strong>CAP</strong> Values to succeed.</li>
+				</ul>
+			</div>
+			</div>
+			
+
+		<div class="grid-span-12 stat-subheader">Special Action Limits</div>
+			<div class="grid-span-12 sal-table">
+			<div class="grid grid-12col gapless">
+			<div class="grid-span-4"><div class="grid grid-12col sal-label"><div class="grid-span-5"><label for="system.spactionlimit.trigger.value" class="resource-label">Trigger:</label></div><div class="grid-span-3"><input type="number" name="system.spactionlimit.trigger.value" value="{{system.spactionlimit.trigger.value}}" data-dtype="Number"/></div><div class="grid-span-1">/</div><div class="grid-span-3"><input type="number" name="system.spactionlimit.trigger.max" value="{{system.spactionlimit.trigger.max}}" data-dtype="Number"/></div></div></div>
+			<div class="grid-span-4"><div class="grid grid-12col sal-label"><div class="grid-span-5"><label for="system.spactionlimit.sustain.value" class="resource-label">Sustain:</label></div><div class="grid-span-3"><input type="number" name="system.spactionlimit.sustain.value" value="{{system.spactionlimit.sustain.value}}" data-dtype="Number"/></div><div class="grid-span-1">/</div><div class="grid-span-3"><input type="number" name="system.spactionlimit.sustain.max" value="{{system.spactionlimit.sustain.max}}" data-dtype="Number"/></div></div></div>
+			<div class="grid-span-4"><div class="grid grid-12col sal-label"><div class="grid-span-5"><label for="system.spactionlimit.amplify.value" class="resource-label">Amplify:</label></div><div class="grid-span-3"><input type="number" name="system.spactionlimit.amplify.value" value="{{system.spactionlimit.amplify.value}}" data-dtype="Number"/></div><div class="grid-span-1">/</div><div class="grid-span-3"><input type="number" name="system.spactionlimit.amplify.max" value="{{system.spactionlimit.amplify.max}}" data-dtype="Number"/></div></div></div>
+			</div>
+			</div>
+		<div class="grid-span-12 stat-subheader">Action Pool</div>
+			<div class="grid-span-12 action-pool">
+			<div class="grid grid-12col gapless">
+			<div class="grid-span-3"><input type="checkbox"></div>
+			<div class="grid-span-3"><input type="checkbox"></div>
+			<div class="grid-span-3"><input type="checkbox"></div>
+			<div class="grid-span-3"><input type="checkbox"></div>
+			</div>
+			<div class="grid grid-8col action-pool-subtext">
+				<ul class="grid-span-8">
+					<li>Slow Action: Check 2&#x1F5F9;</li>
+					<li>Fast Action: Check 1&#x1F5F9;</li>
+				</ul>
+			</div>
+			</div>
+    </aside>
+  </div>
+  
+  <div class="grid-start-5 grid-span-8">
+  {{!-- Sheet Tab Navigation --}}
+  <nav class="sheet-tabs tabs" data-group="primary">
+    {{!-- Default tab is specified in actor-sheet.mjs --}}
+    <a class="item" data-tab="actions">Actions</a>
+    <a class="item" data-tab="items">Inventory</a>
+    <a class="item" data-tab="description">Character Info</a>
+    <a class="item" data-tab="effects">Conditions</a>
+  </nav>
+
+    {{!-- Owned Actions Tab --}}
+    <div class="tab actions" data-group="primary" data-tab="actions" style="min-height: 800px;">
+      <section class="grid grid-10col">
+		<div class="action-header grid grid-12col">
+			<p class="grid-span-3" style="text-align: center;">Name</p><p class="grid-span-2">Type</p><p class="grid-span-2">Target</p><p class="grid-span-2">Range</p><p class="grid-span-2">Speed</p><p class="grid-span-1"></p>
+		</div>
+		<div class="grid grid-12col gapless-no-margin">
+		<div class="grid-span-4"><h3>MOVEMENT</h3></div><div class="grid-span-8 tip-text">• You cannot end your Movement in an occupied Square.</div>
+		<div class="static-table grid grid-12col">
+			<div class="grid-span-3" style="text-align: center; font-weight: bold;"><span class="tooltip"><span>Move Action</span><div class="tooltiptext">Move 1-{{system.movement.slow.value}} Squares. Can move through friendly Combatants.</div></span></div><div class="grid-span-2"><p> </p></div><div class="grid-span-2"><p> </p></div><div class="grid-span-2"><p> </p></div><div class="grid-span-2"><p>Slow</p></div><div class="grid-span-1"><p></p></div>
+			<div class="grid-span-3" style="text-align: center; font-weight: bold;"><span class="tooltip"><span>Shift Action</span><div class="tooltiptext">Move 1-{{system.movement.fast.value}} Squares. Can move through friendly Combatants.</div></span></div><div class="grid-span-2"><p> </p></div><div class="grid-span-2"><p> </p></div><div class="grid-span-2"><p> </p></div><div class="grid-span-2"><p>Fast</p></div><div class="grid-span-1"><p></p></div>
+		</div>
+		</div>
+        {{!-- For the main actions list, span the right two columns --}}
+        <section class="main grid grid-12col min-gap" style="margin-top: 10px;">
+		<div class="grid grid-12col min-gap" >
+			<h3 class="grid-span-4">MANEUVER</h3><div class="grid-span-8 tip-text">• You cannot end your Maneuver in an occupied Square.</div>
+		<div class="grid-span-12">
+          {{!-- This is a Handlebars partial. They're stored in the `/parts` folder next to this sheet, and defined in module/helpers/templates.mjs --}}
+          {{> "systems/emberwind/templates/actor/parts/actor-maneuver.hbs"}}
+		</div>
+		</div>
+		<div class="grid grid-12col min-gap">
+		<div class="grid-span-4"><h3>BASIC ACTIONS</h3></div>
+		<div class="grid-span-12">
+          {{!-- This is a Handlebars partial. They're stored in the `/parts` folder next to this sheet, and defined in module/helpers/templates.mjs --}}
+          {{> "systems/emberwind/templates/actor/parts/actor-basic-action.hbs"}}
+		</div>
+		</div>
+		<div class="grid grid-12col min-gap">
+		<div class="grid-span-4"><h3>CLASS ACTIONS</h3></div><div class="grid-span-8 tip-text"> </div>
+		<div class="grid-span-12">
+          {{!-- This is a Handlebars partial. They're stored in the `/parts` folder next to this sheet, and defined in module/helpers/templates.mjs --}}
+          {{> "systems/emberwind/templates/actor/parts/actor-class-action.hbs"}}
+		</div>
+		</div>
+				<div class="grid grid-12col min-gap">
+		<div class="grid-span-6"><h3 style="color: #F89D51;">CLASS TIDE-TURNER ACTIONS</h3></div><div class="grid-span-2 tip-text">Tide-Turner Charges:</div> 
+			<div id="t-t-charges" class="grid-span-4">
+			
+			</div>
+		  </div>
+		<div class="grid-span-12">
+          {{!-- This is a Handlebars partial. They're stored in the `/parts` folder next to this sheet, and defined in module/helpers/templates.mjs --}}
+          {{> "systems/emberwind/templates/actor/parts/actor-class-tt.hbs"}}
+		</div>
+        </section>
+
+      </section>
+	  </div>
+	  
+	{{!-- Biography Tab --}}
+    <div class="tab biography" data-group="primary" data-tab="description">
+      <h2>Classes</h2>
+	  {{!-- This is a Handlebars partial. They're stored in the `/parts` folder next to this sheet, and defined in module/helpers/templates.mjs --}}
+      {{> "systems/emberwind/templates/actor/parts/actor-class.hbs"}}
+	  {{!-- If you want TinyMCE editors to output inline rolls when rendered, you need to pass the actor's roll data to the rollData property. --}}
+      <h2>Anchors</h2>
+	  {{editor enrichedAnchors target="system.anchors" button=true owner=owner editable=editable engine="prosemirror"}}
+	  <h2>Deadweights</h2>
+	  {{editor enrichedDeadweight target="system.deadweight" button=true owner=owner editable=editable engine="prosemirror"}}
+    </div>
+
+    {{!-- Owned Items Tab --}}
+    <div class="tab items" data-group="primary" data-tab="items">
+       {{> "systems/emberwind/templates/actor/parts/actor-items.hbs"}}
+    </div>
+
+    {{!-- Active Effects Tab --}}
+    <div class="tab effects flexcol" data-group="primary" data-tab="effects">
+		{{> "systems/emberwind/templates/actor/parts/actor-effects.hbs"}}
+		{{> "systems/emberwind/templates/actor/parts/actor-conditions.hbs"}}
+    </div>
+	
+    </div>
+		{{!-- Sheet Footer --}}
+	<div class="grid-span-12 EmberBack-footer">
+	<div class="grid grid-12col footer">
+	<div class="grid-span-4"></div>
+	<div class="grid-span-8">
+	<div class="grid grid-12col" style="align-items: center;">
+	<div class="grid-span-5"><strong>YOUR TURN:</strong>
+	<ol>
+		<li>Restore Action Pool</li>
+		<li>Select Sustains</li>
+		<li>Use up to your Action Pool of Actions.</li>
+	</ol>
+	</div>
+	<div class="grid-span-3"><strong>AT END OF COMBAT:</strong>
+	<ol>
+		<li>Restore HP to full.</li>
+		<li>Remove all Conditions</li>
+	</ol>
+	</div>
+	<img class=" grid-span-4 footer-logo" src="systems/emberwind/assets/Emberwind-Black-Logo.png">
+	</div>
+	</div>
+	</div>
+	</div>
+	
+
+	</div>
+  </section>
+  </div>
+  </div>
+</form>
+<script>
+Hooks.on("renderActorSheet", (sheet, html, data) => {
+    const actor = sheet.actor; // Access the actor from the sheet context
+
+    // Example of how to access a variable (make sure to replace this with your actual path)
+    const numberOfCheckboxes = actor.system.ttcharges?.max || 0;
+
+    const checkboxContainer = document.getElementById("t-t-charges");
+    checkboxContainer.innerHTML = '';
+
+    // Assuming you have the initial variable to subtract from
+    let initialValue = actor.system.ttcharges.max; // Replace with your actual variable path
+
+    // Calculate the number of checkboxes to check
+    let checkedCount = initialValue - actor.system.ttcharges?.value || 0; // Replace with your actual variable path
+
+    // Create the checkboxes
+    for (let i = 0; i < numberOfCheckboxes; i++) {
+        const checkboxId = `ttcharge-${i}`;
+        const checkboxLabel = `Checkbox ${i + 1}`;
+
+        // Determine if this checkbox should be checked
+        const isChecked = (i < checkedCount); // Check the first `checkedCount` checkboxes
+
+        const checkboxHtml = `
+            <input type="checkbox" id="${checkboxId}" name="${checkboxId}" ${isChecked ? 'checked' : ''}>
+        `;
+        checkboxContainer.innerHTML += checkboxHtml;
+    }
+
+    // Function to count checked checkboxes
+    function countCheckedCheckboxes() {
+        const checkboxes = document.querySelectorAll("#t-t-charges input[type='checkbox']");
+        let checkedCount = 0;
+
+        checkboxes.forEach((checkbox) => {
+            if (checkbox.checked) {
+                checkedCount++;
+            }
+        });
+
+        return checkedCount;
+    }
+
+    // Clear previous event listeners to avoid duplicates
+    const existingListener = checkboxContainer.getAttribute('data-event-attached');
+    if (!existingListener) {
+        checkboxContainer.setAttribute('data-event-attached', 'true');
+
+        // Event listener for checkbox changes
+        checkboxContainer.addEventListener("change", () => {
+            const checkedCount = countCheckedCheckboxes();
+            const result = initialValue - checkedCount; // Calculate the new result
+			let lastResult = null; // Store the last result
+
+            // Log only if the result has changed
+            if (result !== lastResult) {
+                lastResult = result; // Update the last result
+            }
+
+            // Update actor's data if needed
+            actor.update({ "system.ttcharges.value": result }); // Adjust the path as necessary
+        });
+    }
+});
+</script>
+

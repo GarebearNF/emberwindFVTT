@@ -1,0 +1,69 @@
+{{#if system.barrier}}
+			<div class="tooltiptext">
+			<div class="grid grid-3col gapless">
+			<div class="grid-span-1"></div>
+			<div class="grid-span-1"></div>
+		{{#if system.classification}}
+			<div class="grid-span-1 item-classification">
+				{{system.classification}}
+			</div>
+				{{else}}
+			<div class="grid-span-1 item-classification">
+				{{this.type}}
+			</div>
+		{{/if}}
+		<div class="grid-span-3">
+			{{#if system.combat.melee.dnum}}{{system.combat.melee.dnum}}{{system.combat.melee.dice}}{{else}}{{system.combat.ranged.dnum}}{{system.combat.ranged.dice}}{{/if}}
+			VS 
+			{{#if (eq system.barrier "tough")}}<svg width="12" height="12"><image class="stat-icon" xlink:href="systems/emberwind/assets/Icons/Toughness.svg"></image></svg> Toughness{{else}}<svg width="12" height="12"><image class="stat-icon" xlink:href="systems/emberwind/assets/Icons/Resistance.svg"></image></svg> Resistance{{/if}}
+			{{#if system.effect}}
+			<hr>
+			<div class="grid-span-3">{{{enrichedEffect}}}</div>
+			{{else}}
+			{{#if system.description}}
+			<hr>
+			<div class="grid-span-3">{{{enrichedDescription}}}</div>
+			{{/if}}
+			{{/if}}
+		</div>
+		</div>
+	</div>
+{{else}}
+	{{#if system.effect}}
+	<div class="tooltiptext">
+	<div class="grid grid-3col gapless">
+	<div class="grid-span-1"></div>
+	<div class="grid-span-1"></div>
+	{{#if system.classification}}
+		<div class="grid-span-1 item-classification">
+		{{system.classification}}
+		</div>
+		{{else}}
+		<div class="grid-span-1 item-classification">
+		{{system.type}}
+		</div>
+	{{/if}}
+	<div class="grid-span-3">{{{system.item.enrichedEffect}}}</div>
+	</div>
+	</div>
+{{else}}
+	{{#if system.description}}
+		<div class="tooltiptext">
+		<div class="grid grid-3col gapless">
+		<div class="grid-span-1"></div>
+		<div class="grid-span-1"></div>
+		{{#if system.classification}}
+			<div class="grid-span-1 item-classification">
+			{{system.classification}}
+			</div>
+			{{else}}
+			<div class="grid-span-1 item-classification">
+			{{this.type}}
+			</div>
+		{{/if}}
+		<div class="grid-span-3">{{{system.item.enrichedDescription}}}</div>
+		</div>
+		</div>		
+		{{/if}}
+	{{/if}}
+{{/if}}

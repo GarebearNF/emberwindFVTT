@@ -1,0 +1,34 @@
+<ol class='items-list '>
+    {{#each actions as |item id|}}
+    <li class='item flexrow grid grid-12col gapless' data-item-id='{{item._id}}'>
+      <div class="grid-span-12">
+	  <div class="grid grid-12col gapless tooltip-container">
+	  <div class='actor-action item-name grid-span-3' data-roll-type='item' style="justify-content: center; font-weight: bold;"><span class="rollable tooltip" data-roll-type='item' >{{item.name}}{{> "systems/emberwind/templates/item/parts/item-tooltip.hbs" this}}</span></div>
+	  <div class="actor-action item-name grid-span-2" style="justify-content: center;">{{item.system.type}}</div>
+	  <div class="actor-action item-name grid-span-2" style="justify-content: center;">{{item.system.target}}</div>
+	  <div class="actor-action item-name grid-span-2" style="justify-content: center;">{{item.system.range}}</div>
+	  <div class="actor-action item-name grid-span-2" style="justify-content: center;">{{item.system.speed}}</div>
+	
+    
+	<div class='actor-action item-name item-controls grid-span-1'>
+        <a
+          class='item-control item-edit'
+          title='{{localize "DOCUMENT.Update" type='item'}}'
+        >
+          <i class='fas fa-edit'></i>
+        </a>
+      </div>
+	  </div></div>
+	  </li>
+  {{/each}}
+  <li class='item flexrow flex-group-right'>
+    <div class='item-controls-add'>
+      <a
+        class='item-control item-create'
+        title='Create Basic Action'
+        data-type='item'
+      >
+      </a>
+    </div>
+  </li>
+</ol>

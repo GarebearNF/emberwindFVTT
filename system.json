@@ -1,0 +1,57 @@
+{
+  "id": "emberwind",
+  "version": "0.1.0",
+  "title": "Emberwind",
+  "url": "https://github.com/GarebearNF/emberwindFVTT",
+  "description": "Unofficial repository for the FoundryVTT version of the Emberwind system.",
+  "license": "LICENSE.txt",
+  "authors": [
+    {
+      "name": "LurkerBees, Syphre"
+    }
+  ],
+  "esmodules": [
+	"module/emberwind.mjs"
+	],
+  "styles": ["css/emberwind.css"],
+  "packs": [],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ],
+  "packs": [
+	{
+	  "name": "emberwind-resources",
+            "label": "Resources",
+            "system": "emberwind",
+            "path": "packs/emberwind-resources",
+            "type": "JournalEntry",
+            "private": false,
+            "flags": {}
+	},
+	{
+	  "name": "hero-abilities-and-skills",
+            "label": "Hero Abilities",
+            "system": "emberwind",
+            "path": "packs/hero-abilities-and-skills",
+            "type": "Item",
+            "private": false,
+            "flags": {}
+	}
+  ],
+  "compatibility": {
+    "minimum": "12",
+    "verified": "12"
+  },
+  "grid": {
+        "distance": 3,
+        "units": "m"
+    },
+  "primaryTokenAttribute": "health",
+  "secondaryTokenAttribute": "power",
+  "manifest": "https://raw.githubusercontent.com/foundryvtt/worldbuilding/master/system.json",
+  "download": "https://github.com/foundryvtt/worldbuilding/archive/refs/tags/release-082.zip"
+}

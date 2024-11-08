@@ -1,0 +1,290 @@
+{
+  "Actor": {
+    "types": ["hero-aspect", "hero-attribute", "foe"],
+    "templates": {
+      "base": {
+        "health": {
+          "value": 25,
+          "min": 0,
+          "max": 25
+        },
+        "biography": ""
+      },
+	"hero": {
+		"exp": {
+          "value": 0
+        },
+		"class": "",
+		"subclass": "",
+		"abilities": {
+			"tough": {
+			  "value": 4,
+			  "label": "Toughness",
+			  "bonus": 0
+			},
+			"resist": {
+			  "value": 4,
+			  "label": "Resistance",
+			  "bonus": 0
+			},
+			"dodge": {
+			  "value": 4,
+			  "label": "Dodge",
+			  "bonus": 0
+			},
+			"will": {
+			  "value": 4,
+			  "label": "Willpower",
+			  "bonus": 0
+			},
+			"crit": {
+			  "value": 2,
+			  "label": "Critical",
+			  "bonus": 0
+			},
+			"accu": {
+			  "value": 10,
+			  "label": "Accuracy",
+			  "bonus": 0
+			},
+			"pene": {
+			  "value": 5,
+			  "label": "Penetration",
+			  "bonus": 0
+			}
+		},
+		"stats": {
+			"ath": {
+			  "value": 8,
+			  "label": "Athletics",
+			  "bonus": 0
+			},
+			"acr": {
+			  "value": 8,
+			  "label": "Acrobatics",
+			  "bonus": 0
+			},
+			"end": {
+			  "value": 8,
+			  "label": "Endurance",
+			  "bonus": 0
+			},
+			"fas": {
+			  "value": 8,
+			  "label": "Fast Talk",
+			  "bonus": 0
+			},
+			"foc": {
+			  "value": 8,
+			  "label": "Focus",
+			  "bonus": 0
+			},
+			"ins": {
+			  "value": 8,
+			  "label": "Insight",
+			  "bonus": 0
+			},
+			"int": {
+			  "value": 8,
+			  "label": "Intimidate",
+			  "bonus": 0
+			},
+			"kno": {
+			  "value": 8,
+			  "label": "Knowledge",
+			  "bonus": 0
+			},
+			"lea": {
+			  "value": 8,
+			  "label": "Leadership",
+			  "bonus": 0
+			},
+			"men": {
+			  "value": 8,
+			  "label": "Mend",
+			  "bonus": 0
+			},
+			"soh": {
+			  "value": 8,
+			  "label": "Sleight of Hand",
+			  "bonus": 0
+			},
+			"ste": {
+			  "value": 8,
+			  "label": "Stealth",
+			  "bonus": 0
+			}
+		},
+		"spactionlimit": {
+			"trigger": {
+				"value": 1,
+				"max": 1
+			},
+			"sustain": {
+				"value": 1,
+				"max": 1
+			},
+			"amplify": {
+				"value": 1,
+				"max": 1
+			}
+		},
+		"anchors": "",
+		"deadweight": "",
+		"tier": "1",
+		"movement": {
+			"slow": {
+				"value": 5
+			},
+			"fast": {
+				"value": 1
+			}
+		},
+		"ttcharges": {
+			"value": 2,
+			"max": 2
+		},
+		"combat": {
+			"melee": {
+				"dnum": 0,
+				"dice": "",
+				"bonus": 0
+			},
+			"ranged": {
+				"dnum": 0,
+				"dice": "",
+				"bonus": 0
+			}
+		}
+	  
+	},
+	"foe": {
+		"rank": {
+			"grunt":{
+				"label": "Grunt",
+				"dtype": "String"
+			},
+			"awakened":{
+				"label": "Awakened",
+				"dtype": "String"
+			},
+			"elite":{
+				"label": "Elite",
+				"dtype": "String"
+			},
+			"boss":{
+				"label": "Boss",
+				"dtype": "String"
+			}
+		},
+		"abilities": {
+			"tough": {
+			  "value": 5,
+			  "label": "Toughness",
+			  "bonus": 0
+			},
+			"resist": {
+			  "value": 5,
+			  "label": "Resistance",
+			  "bonus": 0
+			}
+		},
+		"type": "",
+		"size":{
+			"width": {
+				"value": 1,
+				"label": "Width"
+			},
+			"height": {
+				"value": 1,
+				"label": "Height"
+			}
+		}
+	}
+    },
+    "hero-aspect": {
+      "templates": ["base", "hero"],
+      "attributes": {
+        "level": {
+          "value": 1
+        }
+      }
+    },
+	"hero-attribute": {
+		"abilities": {
+			"stren": {
+			  "value": 0,
+			  "label": "Strength"
+			},
+			"intel": {
+			  "value": 0,
+			  "label": "Intelligence"
+			},
+			"dext": {
+			  "value": 0,
+			  "label": "Dexterity"
+			},
+			"resil": {
+			  "value": 0,
+			  "label": "Resilience"
+			}
+		}
+	},
+    "npc": {
+      "templates": ["base"],
+      "cr": 0
+    }
+  },
+  "Item": {
+    "types": ["aspect","class", "class-action", "class-trait", "class-tt-action", "foe-characteristic", "foe-mod", "item", "maneuver","occupation", "subclass"],
+    "templates": {
+      "base": {
+        "description": "",
+		"disable": false,
+		"tiermod": 0,
+		"itemtiermod": 0,
+		"skill": ""
+      },
+	  "action": {
+		"classification": "",
+		"type": "",
+		"target": "",
+		"range": "",
+		"effect": "",
+		"speed": "",
+		"class": "",
+		"auto-hit": false,
+		"auto-crit": false,
+		"pierce": false
+	  }
+    },
+    "item": {
+		"templates": ["base", "action"],
+		"formula": "",
+		"barrier": "",
+		"dice": "",
+		"combat": {
+			"melee": {
+				"dnum": 0,
+				"dice": "",
+				"bonus": 0
+			},
+			"ranged": {
+				"dnum": 0,
+				"dice": "",
+				"bonus": 0
+			}
+		},
+		"equipped": false
+	},
+    "class": {
+      "templates": ["base"]
+    },
+    "maneuver": {
+      "templates": ["base"]
+    },
+	"class-action": {
+      "templates": ["base", "action"]
+    }
+  }
+}
