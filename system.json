@@ -1,6 +1,6 @@
 {
   "id": "emberwind",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "title": "Emberwind",
   "url": "https://github.com/GarebearNF/emberwindFVTT",
   "description": "Unofficial repository for the FoundryVTT version of the Emberwind system.",
@@ -53,5 +53,5 @@
   "primaryTokenAttribute": "health",
   "secondaryTokenAttribute": "power",
   "manifest": "https://raw.githubusercontent.com/GarebearNF/emberwindFVTT/refs/heads/main/system.json",
-  "download": "https://www.dropbox.com/scl/fi/2efin1wz15erc0dttocqs/emberwind.zip?rlkey=7xye8otvm1laucjzu27v7e1d8&st=cp0hf3fw&dl=1"
+  "download": "https://github.com/GarebearNF/emberwindFVTT/releases/latest"
 }
