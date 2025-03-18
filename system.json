@@ -53,5 +53,5 @@
   "primaryTokenAttribute": "health",
   "secondaryTokenAttribute": "power",
   "manifest": "https://raw.githubusercontent.com/GarebearNF/emberwindFVTT/refs/heads/main/system.json",
-  "download": "https://github.com/GarebearNF/emberwindFVTT/releases/latest"
+  "download": "https://github.com/GarebearNF/emberwindFVTT/releases/download/Pre-Alpha/emberwind.zip"
 }
